@@ -1,0 +1,17 @@
+
+welcome: { eng: "Welcome to Calculator! Enter your name"} 
+validname: { eng: "Make sure to use a valid name"} 
+firstnum: { eng: "What's the first number?"}
+secondnum: { eng: "What's the second number?"}
+validnum: {eng: "That doesn't look valid"} 
+opmessage: { eng:
+  "What operation would you like to perform?\n 1) add\n 2) subtract\n 3) multiply\n 4) divide" 
+  }
+validop: { eng: "Must choose 1, 2, 3, or 4"} 
+addop: { eng: "Adding"}
+subop: { eng: "Subtracting"} 
+mulop: { eng: "Multiplying"} 
+divop: { eng: "Dividing"}
+twonums: { eng: "the two numbers..."}
+resultmsg: { eng: "The result is" } 
+calcagain: { eng: "Do you want to perform another calculation? (Y to calculate again)" }
