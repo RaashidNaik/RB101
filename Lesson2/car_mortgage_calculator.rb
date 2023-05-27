@@ -15,8 +15,13 @@
 # n = loan duration in months
 
 def validate_input?(userinput)
+  # If user creates a float without a leading zero
+  # Need to add the zero to allow for later validation steps
   userinput = "0" + userinput if userinput.start_with?(".")
-  (userinput.to_f.to_s == userinput  || userinput.to_i.to_s == userinput) && (userinput.to_f > 0)
+  # Checks if input is integer, float & > 0
+  (userinput.to_f.to_s == userinput ||
+    userinput.to_i.to_s == userinput) &&
+    (userinput.to_f > 0)
 end
 
 Kernel.puts("Welcome to the Mortgage Calculator!\n")
@@ -25,7 +30,6 @@ Kernel.puts("Welcome to the Mortgage Calculator!\n")
 loan_amount = ''
 ann_per_rate = ''
 loan_duration = ''
-
 
 # User enters in the Loan Amount and validation method is called
 loop do
@@ -53,16 +57,17 @@ end
 
 puts "\n\nCalculating....."
 
-#Calculating monthly interest rate
+# Calculating monthly interest rate
 month_int_rate = ann_per_rate.to_f / 12
 puts "The monthly interest rate is: #{month_int_rate}%"
 # Converting monthly interest rate into a decimal
-month_int_rate =  month_int_rate / 100
+month_int_rate /= 100
 
-#Calculating loan duration in months
+# Calculating loan duration in months
 loan_duration_month = loan_duration.to_f * 12
 puts "The monthly loan duration is: #{loan_duration_month} months"
 
-#Calculating monthly payment
-month_payment = loan_amount.to_f * (month_int_rate / (1 - (1 + (month_int_rate))**(-loan_duration_month)))
+# Calculating monthly payment
+month_payment = loan_amount.to_f * (month_int_rate /
+  (1 - (1 + (month_int_rate))**(-loan_duration_month)))
 puts "The monthly payment is: $#{month_payment}"
