@@ -16,7 +16,7 @@ def win?(first, second)
   WINNING.each do |key, array|
     return true if (first == key) && (array.include?(second))
   end
-  return false
+  false
 end
 
 def display_results(player, computer)
@@ -49,7 +49,7 @@ loop do
   computer_choice = VALID_CHOICES.sample
   prompt("You chose: #{choice}; Computer chose: #{computer_choice}")
   display_results(choice, computer_choice)
-  
+
   if win?(choice, computer_choice)
     player_score += 1
   elsif choice == computer_choice
@@ -66,6 +66,5 @@ loop do
   # break unless answer.downcase().start_with?('y')
 end
 
-player_score == 3 ? prompt("You win!"): prompt("Computer wins")
+player_score == 3 ? prompt("You win!") : prompt("Computer wins")
 prompt("Thanks for playing!")
-
